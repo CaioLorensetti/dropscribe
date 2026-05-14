@@ -1,0 +1,9 @@
+log.txt
+__pycache__/
+*.pyc
+in-files/*
+!in-files/.gitkeep
+out-transcripts/*
+!out-transcripts/.gitkeep
+docs/*
+.vscode/*
