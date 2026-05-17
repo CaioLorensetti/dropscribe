@@ -1,7 +1,7 @@
 import subprocess
 from pathlib import Path
 
-from config import WHISPER_EXE, OUT_TRANSCRIPTS_DIR, PROJECT_ROOT
+from config import WHISPER_EXE, OUT_TRANSCRIPTS_DIR, PROJECT_ROOT, MODEL, LANGUAGE
 from logger import log
 
 
@@ -18,9 +18,10 @@ def transcribe(audio_path: Path, stem: str) -> Path | None:
         [
             WHISPER_EXE,
             str(audio_path),
+            "model", MODEL,
             "--output_dir", str(OUT_TRANSCRIPTS_DIR),
-            "--output_format", "txt",
             "--task", "transcribe",
+            "--language", LANGUAGE,
         ],
         capture_output=True,
         text=True,

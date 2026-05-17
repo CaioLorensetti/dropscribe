@@ -40,8 +40,8 @@ def acquire_lock() -> None:
             sys.exit(1)
 
         log("INFO", "Stale lock removed — previous instance was killed ungracefully")
-        config.LOCK_FILE.unlink(missing_ok=True)
-        config.PID_FILE.unlink(missing_ok=True)
+        release_lock()
+        delete_pid()
 
     config.LOCK_FILE.touch()
 
@@ -98,9 +98,13 @@ def poll_cycle() -> None:
     log("INFO", "IDLE      queue empty")
 
 
-def main() -> None:
+def main(model: str | None = None, language: str | None = None) -> None:
     acquire_lock()
     write_pid()
+    if model is not None:
+        config.MODEL = model
+    if language is not None:
+        config.LANGUAGE = language
     log("INFO", "Service started")
     try:
         while True:

@@ -6,6 +6,8 @@ OUT_TRANSCRIPTS_DIR = PROJECT_ROOT / "out-transcripts"
 LOG_FILE = PROJECT_ROOT / "log.txt"
 LOCK_FILE = IN_FILES_DIR / ".lock"
 PID_FILE = IN_FILES_DIR / ".pid"
+MODEL = "turbo"
+LANGUAGE = "pt"
 
 FFMPEG_EXE = r"C:\Users\caiol\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-8.1.1-full_build\bin\ffmpeg.exe"
 WHISPER_EXE = r"C:\Users\caiol\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts\whisper.exe"
